@@ -19,6 +19,7 @@
     <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="<?= base_url(); ?>/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>/js/sweetalert2.min.js"></script>
+    <link href="<?= base_url(); ?>/css/sweetalert2.min.css" rel="stylesheet">
 
 </head>
 

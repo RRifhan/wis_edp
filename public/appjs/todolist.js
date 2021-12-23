@@ -122,20 +122,26 @@ document.querySelector(".txtAdd").addEventListener("keydown", function(e) {
 });
 
 document.querySelector(".btnAdd").addEventListener("click", function() {
-  swal(
+  Swal.fire(
     {
       title: "Are you sure?",
-      text: "Do you want to delete all completed task??",
-      type: "warning",
+      text: "Do you want to delete all completed task??",     
       showCancelButton: true,
-      confirmButtonClass: "btn btn-info btn-fill",
+      customClass: {
+        confirmButton: 'btn btn-danger mr-2',
+        cancelButton: 'btn btn-success'
+      },
+      buttonsStyling: false,
+     // confirmButtonClass: "btn btn-info btn-fill",
       confirmButtonText: "Yes, delete!",
-      cancelButtonClass: "btn btn-danger btn-fill",
-      closeOnConfirm: true
-    },
-    function() {
-      Store.removeCompleted();
+      //cancelButtonClass: "btn btn-danger btn-fill",
+      //closeOnConfirm: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Store.removeCompleted();
       UI.displayList();
-    }
-  );
+      }
+      
+    });
+ 
 });

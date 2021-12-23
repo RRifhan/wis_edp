@@ -71,24 +71,7 @@
                 <h3 class="count">{{completedTasks}} out of {{taskList.length}} tasks completed</h3>
             </div>
         </div>
-        <div class="card  shadow border-left-success">
-            <div class="card-header ">
-                <h4 class="card-title">List Call Center</h4>
-                <p class="card-category">A number you shoud call when something went wrong</p>
-            </div>
-            <div class="card-body ">
-                <ul>
-                    <li>Telkom Coorporate DES : <b>0800-1835566 ext 112</b></li>
-                    <li>Telkom Coorporate DBS : <b>1500250</b></li>
-                    <li> Eos HO : <b>02129135568 </b></li>
-                    <li> ASTINET BB : <b>4700709-0030794689</b></li>
-                    <li> ASTINET BM : <b>553501104</b></li>
-                    <li> ASTINET OFFICE : <b>1052583511</b></li>
-                    <li> SPEEDY : <b>122363205497</b></li>
-                    <li> IPP : <b>4700709-0031030812</b></li>
-                </ul>
-            </div>
-        </div>
+       
     </div>
 
 </div>
