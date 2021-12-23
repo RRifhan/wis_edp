@@ -27,7 +27,7 @@ class LoginFilter implements FilterInterface
                 $menu = $request->uri->getSegment(1);
                 $alowed = ['', 'profile'];
                 if (in_array($menu, $alowed)) {
-                    $menu = 'dashboard';
+                    $menu = 'home';
                 }
 
                 $querymenu = "SELECT tb_menu_role.*,link FROM tb_menu_role JOIN tb_menu 
