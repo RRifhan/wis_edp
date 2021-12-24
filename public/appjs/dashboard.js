@@ -41,63 +41,62 @@ $("#pilihToko").on("keyup", function (e) {
             "ip_telemetri"
           ];
           let hasilip = "";
-          ipToko.forEach(function (ip) {
-            if (res[ip] != "") {
-              if (res[ip] != null) {
+          res.forEach(function (ip) {
+           
+           
                 hasilip += `<div class="input-group mb-2 col-lg-6">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">${ip} </div>
+                            <div class="input-group-text">${ip.jenis} - ${ip.station} </div>
                         </div>
                         <input type="text" class="form-control" id="inlineFormInputGroup" readonly value="${
-                          res[ip]
+                          ip.ipaddress
                         }">
                     </div>`;
-              }
-            }
+             
           });
-          $("#hasil").html(`<label>Nama : <b>${res.KodeToko} - ${
-            res.NamaToko
+          $("#hasil").html(`<label>Nama : <b>${res[0].KodeToko} - ${
+            res[0].NamaToko
           }</b></label><br>
                     <label>Koneksi Utama : <b>${
-                      res.tipe_koneksi_primary
+                      res[0].tipe_koneksi_primary
                     }</b> </label> ${
-            res.tipe_koneksi_secondary == ""
+            res[0].tipe_koneksi_secondary == ""
               ? `<br>`
               : `<label class="ml-5">Koneksi Backup : <b> ${
-                  res.tipe_koneksi_secondary
+                  res[0].tipe_koneksi_secondary
                 }</b> </label><br>`
           }
-                    <label>No Telp : <b>${res.NoTelpToko}</b></label><br>
+                    <label>No Telp : <b>${res[0].NoTelpToko}</b></label><br>
                     
-                    <label>Alamat : <b>${res.AlamatToko} , Kel: ${
-            res.TOK_KELURAHAN
-          } , Kec: ${res.TOK_KECAMATAN}, ${res.KotaToko} </b> </label><br>
+                    <label>Alamat : <b>${res[0].AlamatToko} , Kel: ${
+            res[0].TOK_KELURAHAN
+          } , Kec: ${res[0].TOK_KECAMATAN}, ${res[0].KotaToko} </b> </label><br>
                     <label>Tagging Lokasi : <b><a href="https://www.google.com/maps/search/?api=1&query=${
-                      res.lat_decimal
+                      res[0].lat_decimal
                     },${
-            res.long_decimal
+            res[0].long_decimal
           }" target="_blank">Show on Map</a></b> </label><br>
-                    <label>EDP OPR : <b>${res.personil}</b> </label><br>
+                    <label>PIC MAINTENANCE : <b>${res[0].personil}</b> </label><br>
                     <label>ASPV : <b>${
-            res.aspv
-          }</b></label> <label class="ml-5"><br>AMGR : <b>${res.amgr}</b> </label><br>
+            res[0].aspv
+          }</b></label> <label class="ml-5"><br>AMGR : <b>${res[0].amgr}</b> </label><br>
                     <div class="form-group row">
                         <label class="col-sm-3 control-label" for="TypeToko24">Status</label>
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="TypeToko24" name="TypeToko24" disabled value="" ${
-                              res.TypeToko24 == "Y" ? `checked` : ``
+                              res[0].TypeToko24 == "Y" ? `checked` : ``
                             }>
                             <label class="custom-control-label" for="TypeToko24s">Toko 24jam</label>
                         </div>
                         <div class="ml-2 custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="TokoApka" name="TokoApka" disabled value="" ${
-                              res.TokoApka == "Y" ? `checked` : ``
+                              res[0].TokoApka == "Y" ? `checked` : ``
                             }>
                             <label class="custom-control-label" for="TokoApka">Toko Apka</label>
                         </div>
                         <div class="ml-2 custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="isIkiosk" name="isIkiosk" disabled value="" ${
-                              res.isIkiosk == "Y" ? `checked` : ``
+                              res[0].isIkiosk == "Y" ? `checked` : ``
                             }>
                             <label class="custom-control-label" for="isIkiosk">Ikiosk</label>
                         </div>
@@ -112,7 +111,7 @@ $("#pilihToko").on("keyup", function (e) {
             $temp.val($(this).val()).select();
             document.execCommand("copy");
             $temp.remove();
-            swal({
+            Swal.fire({
               text: "Success copying " + $(this).val(),
               timer: 1000,
               type: "success"
@@ -120,7 +119,7 @@ $("#pilihToko").on("keyup", function (e) {
           });
         },
         error: function (xhr, textStatus, thrownError) {
-          swal({
+          Swal.fire({
             title: xhr.responseText,
             type: "error"
           });
